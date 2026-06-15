@@ -1,8 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const taskDescription = ref('')
 const isComplete = ref(false)
+
+// use computed to refactor and reduce conditional expression in template
+const isCompleteMessage = computed(() => {
+    return isComplete.value ? "✅" : "❌";
+})
 </script>
 
 <template>
@@ -13,7 +18,7 @@ const isComplete = ref(false)
         </div>
         <div class="">
             <span>Status: </span>
-            <span>{{ isComplete ? "✅"  : "❌" }}</span>
+            <span>{{ isCompleteMessage }}</span>
         </div>
     </div>
 </template>

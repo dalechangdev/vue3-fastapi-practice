@@ -8,9 +8,17 @@ const now = reactive({
 function otherNow() {
     return Date.now();
 }
+
+function getCurrentTime(): void {
+    now.dt = Date.now()
+}
+
+function isCompleteMessage(): void {
+    otherNow()
+}
 </script>
 
 <template>
-    <p>{{ now }}</p>
-    <p>{{ otherNow() }}</p>
+    <button @click="getCurrentTime">{{ now }}</button>
+    <button @click="isCompleteMessage">{{ otherNow() }}</button>
 </template>

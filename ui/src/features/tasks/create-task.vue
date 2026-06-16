@@ -13,6 +13,8 @@ const resolver = ({ values }: { values: Record<string, unknown> }) => {
 
     if (values.description === null || values.description === undefined) {
         errors.description = [{ message: 'Description is required' }];
+    } else if (values.description instanceof String && values.description.length === 0) {
+        errors.description = [{ message: 'Description is required' }];
     }
 
     return { values, errors}

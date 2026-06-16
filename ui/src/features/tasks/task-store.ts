@@ -18,14 +18,11 @@ export const useTaskStore = defineStore('tasks', () => {
         tasks.value = tasks.value.filter(t => t.description !== description);
     }
 
-    function toggleTask(description: string): void {
+    function toggleTask(description: string, updates: Partial<Task>): void {
         const foundTask = tasks.value.find(t => t.description === description);
-        if (!foundTask) {
-            throw new TaskNotFoundError();
+        if (foundTask) {
+            Object.assign(foundTask, updates)
         }
-        const foundIndex = tasks.value.indexOf(foundTask);
-        foundTask.isCompleted = !foundTask.isCompleted
-        tasks.value.splice(foundIndex, 1, foundTask)
     }
 
     return {

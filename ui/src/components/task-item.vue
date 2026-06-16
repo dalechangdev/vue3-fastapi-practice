@@ -12,10 +12,6 @@ const props = defineProps<Task>()
 // const isCompleteMessage = computed(() => {
 //     return isComplete.value ? "✅" : "❌";
 // })
-
-function handleToggleComplete() {
-
-}
 </script>
 
 <template>
@@ -31,7 +27,7 @@ function handleToggleComplete() {
             </div>
         </div>
         <div class="flex gap-2">
-            <Button @click="handleToggleComplete">{{ !props.isCompleted ? 'Complete Task' : 'Revert' }}</Button>
+            <Button @click="store.toggleTask(description, { isCompleted: !isCompleted })">{{ !props.isCompleted ? 'Complete Task' : 'Revert' }}</Button>
             <Button icon="pi pi-trash" @click="store.deleteTask(description)" aria-label="Delete" />
         </div>
     </div>

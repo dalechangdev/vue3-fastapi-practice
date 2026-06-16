@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { useTaskStore } from '@/features/tasks/task-store';
 import type { Task } from '@/types';
 
 import { Button } from 'primevue'
+
+const store = useTaskStore();
 
 const props = defineProps<Task>()
 
@@ -11,10 +14,6 @@ const props = defineProps<Task>()
 // })
 
 function handleToggleComplete() {
-
-}
-
-function handleDeleteTask() {
 
 }
 </script>
@@ -33,7 +32,7 @@ function handleDeleteTask() {
         </div>
         <div class="flex gap-2">
             <Button @click="handleToggleComplete">{{ !props.isCompleted ? 'Complete Task' : 'Revert' }}</Button>
-            <Button icon="pi pi-trash" @click="handleDeleteTask" aria-label="Delete" />
+            <Button icon="pi pi-trash" @click="store.deleteTask(description)" aria-label="Delete" />
         </div>
     </div>
 </template>

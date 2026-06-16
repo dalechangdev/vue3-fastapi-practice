@@ -13,6 +13,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     CachedDate: typeof import('./src/components/study/cached-date.vue')['default']
+    Message: typeof import('primevue/message')['default']
     QuestionWatcher: typeof import('./src/components/question-watcher.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
@@ -24,6 +25,7 @@ declare module 'vue' {
 // For TSX support
 declare global {
   const CachedDate: typeof import('./src/components/study/cached-date.vue')['default']
+  const Message: typeof import('primevue/message')['default']
   const QuestionWatcher: typeof import('./src/components/question-watcher.vue')['default']
   const RouterLink: typeof import('vue-router')['RouterLink']
   const RouterView: typeof import('vue-router')['RouterView']

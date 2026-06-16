@@ -13,10 +13,16 @@ export const useTaskStore = defineStore('tasks', () => {
         tasks.value.push({ description, isCompleted: false });
     }
 
+    function deleteTask(description: string): void {
+        const foundIndex = tasks.value.findIndex(t => t.description === description);
+        tasks.value = tasks.value.splice(foundIndex, 1);
+    }
+
     return {
         tasks,
         unfinishedTasks,
         finishedTasks,
         createTask,
+        deleteTask,
     }
 });

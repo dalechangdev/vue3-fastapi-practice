@@ -11,15 +11,19 @@ const props = defineProps<Task>()
 function handleToggleComplete() {
 
 }
+
+function handleDeleteTask() {
+
+}
 </script>
 
 <template>
     <div class="border px-2 py-4">
-        <div class="">
-            <span>Description:</span>
-            <span>{{ props.description }}</span>
-        </div>
-        <div>
+        <div class="flex">
+            <div class="flex flex-col gap-2">
+                <span>Description:</span>
+                <span>{{ props.description }}</span>
+            </div>
             <button @click="handleToggleComplete">{{ !props.isCompleted ? 'Complete Task' : 'Revert' }}</button>
         </div>
         <div class="">

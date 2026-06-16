@@ -31,7 +31,9 @@ function handleDeleteTask() {
                 <span>{{ props.isCompleted ? "✅" : "❌" }}</span>
             </div>
         </div>
-        <Button @click="handleToggleComplete">{{ !props.isCompleted ? 'Complete Task' : 'Revert' }}</Button>
-        <Button icon="pi pi-trash" @click="handleDeleteTask" aria-label="Delete" />
+        <div class="flex gap-2">
+            <Button @click="handleToggleComplete">{{ !props.isCompleted ? 'Complete Task' : 'Revert' }}</Button>
+            <Button icon="pi pi-trash" @click="handleDeleteTask" aria-label="Delete" />
+        </div>
     </div>
 </template>

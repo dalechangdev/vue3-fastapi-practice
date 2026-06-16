@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+import InputText from 'primevue/inputtext';
+import Button from 'primevue/button';
+
 const taskDescription = ref('')
 const emit = defineEmits(['submit'])
 
@@ -10,6 +13,8 @@ function buttonClick() {
 </script>
 
 <template>
-    <input v-model="taskDescription" />
-    <button @click="buttonClick">Create Task</button>
+    <div class="flex gap-2">
+        <InputText type="text" v-model="taskDescription" />
+        <Button @click="buttonClick" label="Create"></Button>
+    </div>
 </template>

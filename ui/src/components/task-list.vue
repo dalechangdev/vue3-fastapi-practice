@@ -12,8 +12,8 @@ const props = defineProps<{
         <p>No tasks found! Create one?</p>
     </template>
     <template v-else>
-        <div>
-            <div v-for="task in props.tasks" :key="task.description">
+        <div class="flex flex-col gap-2 p-2">
+            <div class="w-48" v-for="task in props.tasks" :key="task.description">
                 <TaskItem :description="task.description" :is-completed="task.isCompleted" />
             </div>
         </div>

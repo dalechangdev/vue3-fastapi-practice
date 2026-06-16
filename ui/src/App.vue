@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
 import createTask from './features/tasks/create-task.vue';
 import taskList from './components/task-list.vue';
-import type { Task } from './types/task.ts';
+import { useTaskStore } from './features/tasks/task-store.ts';
 
-const tasks = reactive<Task[]>([]);
+const store = useTaskStore();
 
 function handleCreateTask(taskDescription: string) {
-    tasks.push({ description: taskDescription, isCompleted: false });
+    store.createTask(taskDescription);
 }
 </script>
 
 <template>
     <createTask @on-create-task="handleCreateTask" @submit="handleCreateTask" />
-    <taskList :tasks="tasks" />
+    <taskList :tasks="store.tasks" />
 </template>
 
 <style scoped></style>
